@@ -421,11 +421,17 @@ export interface NavigationScreenProp<S> {
   state: S;
   dispatch: NavigationDispatch;
   goBack: (routeKey?: (string | null)) => boolean;
-  navigate: (
+  navigate(options: {
+    routeName: string,
+    params?: NavigationParams,
+    action?: NavigationAction,
+    key?: string
+  }): boolean;
+  navigate(
     routeName: string,
     params?: NavigationParams,
     action?: NavigationAction
-  ) => boolean;
+  ): boolean;
   setParams: (newParams: NavigationParams) => boolean;
   addListener: (
     eventName: string,
